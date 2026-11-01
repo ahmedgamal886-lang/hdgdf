@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c6a53"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Rabbit Farm">
+<title>Rabbit Farm</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"></noscript>
+<style>
+:root{--bg:#f0f4f1;--sf:#fff;--ink:#14241c;--mu:#5f7066;--ln:#d9e2dc;--pr:#0c6a53;--pt:#fff;--rc:#b42626;--rb:#fbe8e8;--yc:#8f6100;--yb:#fcf1cf;--gc:#1f7a3f;--gb:#e1f3e7;--bc:#1f5f9f;--bb:#e3edf9;--oc:#b4520f;--ob:#fdebdc;--nc:#56646b;--nb:#e9eeeb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1612;--sf:#17221c;--ink:#e7f0ea;--mu:#93a99c;--ln:#2a3a31;--pr:#3dbb95;--pt:#062018;--rc:#ff8f8f;--rb:#3a1c1c;--yc:#f3c95a;--yb:#38300f;--gc:#77d497;--gb:#15301f;--bc:#8bbcf0;--bb:#15263a;--oc:#f5a06a;--ob:#38220f;--nc:#a5b5ad;--nb:#222e27}}
+:root[data-theme=dark]{--bg:#0e1612;--sf:#17221c;--ink:#e7f0ea;--mu:#93a99c;--ln:#2a3a31;--pr:#3dbb95;--pt:#062018;--rc:#ff8f8f;--rb:#3a1c1c;--yc:#f3c95a;--yb:#38300f;--gc:#77d497;--gb:#15301f;--bc:#8bbcf0;--bb:#15263a;--oc:#f5a06a;--ob:#38220f;--nc:#a5b5ad;--nb:#222e27}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{overflow-wrap:anywhere;margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Tajawal,system-ui,"Noto Sans Arabic",sans-serif;-webkit-tap-highlight-color:transparent}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--pr);color:var(--pt)}
+.bar h1{font-size:19px;margin:0}
+.pill{border:0;border-radius:99px;padding:5px 12px;font:inherit;font-size:12.5px;font-weight:500}
+main{padding:12px 12px 96px;max-width:720px;margin:0 auto}
+h3{font-size:15px;margin:18px 2px 8px;color:var(--mu);font-weight:700}h3 small{font-weight:500}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);z-index:6}
+nav button{flex:1;border:0;background:none;color:var(--mu);font:inherit;font-size:12px;padding:8px 2px;min-height:56px;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button span{font-size:20px;line-height:1}nav .on{color:var(--pr);font-weight:700}
+.hero{padding:6px 4px 12px}.hero small{color:var(--mu)}.hero h2{margin:2px 0 0;font-size:23px;line-height:1.3}
+.kp3{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.kp{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.k{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.kp3 .k{align-items:center;border:0;padding:10px 4px}.kp3 .k b{font-size:26px;line-height:1.1}.kp3 .k span{font-size:12px}
+.kp .k span{font-size:13px;color:var(--mu)}.kp .k b{font-size:18px}.k.neg b{color:var(--rc)}
+.cd{display:block;width:100%;text-align:start;background:var(--sf);color:inherit;border:1px solid var(--ln);border-radius:14px;padding:12px;margin-bottom:8px;font:inherit}
+button.cd{cursor:pointer}.cd.dim{opacity:.6}
+.row{display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:space-between;align-items:center}
+.mu{color:var(--mu);font-size:13.5px;margin-top:2px}
+.ch{display:inline-block;border-radius:99px;padding:2px 10px;font-size:12.5px;font-weight:500}
+.c-r{background:var(--rb);color:var(--rc)}.c-y{background:var(--yb);color:var(--yc)}.c-g{background:var(--gb);color:var(--gc)}.c-b,.c-ok{background:var(--bb);color:var(--bc)}.c-o{background:var(--ob);color:var(--oc)}.c-n{background:var(--nb);color:var(--nc)}
+.seg{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px}.seg button{flex:1;white-space:nowrap;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:99px;padding:8px 14px;font:inherit;min-height:40px}.seg .on{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+.tb{display:flex;gap:8px;margin-bottom:10px}.tb input{flex:1;min-width:0}
+input,select{width:100%;min-height:44px;border:1px solid var(--ln);border-radius:12px;padding:8px 12px;font:inherit;background:var(--sf);color:var(--ink)}
+.tb select{width:auto;max-width:40%}
+.fl{margin-bottom:10px}.fl label{display:block;font-size:13.5px;color:var(--mu);margin-bottom:3px}.fl i{color:var(--rc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--pr);color:var(--pt);border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:700;min-height:46px;cursor:pointer}
+.btn.s{background:transparent;color:var(--pr);border:1px solid var(--ln)}.btn.d{background:var(--rc);color:#fff}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.acts .btn{flex:1}
+.fab{position:fixed;inset-inline-end:16px;bottom:calc(72px + env(safe-area-inset-bottom,0px));width:56px;height:56px;border-radius:50%;border:0;background:var(--pr);color:var(--pt);font-size:30px;line-height:1;z-index:4;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.lnk{display:block;width:100%;background:none;border:0;color:var(--pr);font:inherit;font-weight:700;padding:12px}
+.empty{text-align:center;color:var(--mu);padding:32px 12px}
+.vr{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;justify-content:space-between;margin-top:8px;font-size:14px}
+.mini{border:1px solid var(--ln);background:var(--sf);color:var(--pr);border-radius:10px;padding:6px 10px;font:inherit;font-size:13px;min-height:36px}
+#sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;z-index:20}
+.sh{background:var(--bg);width:100%;max-height:93%;overflow:auto;border-radius:18px 18px 0 0;padding:14px 14px calc(16px + env(safe-area-inset-bottom,0px));max-width:720px;margin:0 auto}
+.shh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.shh b{font-size:18px}.shh button{border:0;background:var(--sf);border-radius:50%;width:38px;height:38px;color:var(--ink);font-size:16px}
+.pv{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:4px 12px;margin-top:6px}.pv div{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--ln);font-size:14.5px}.pv div:last-child{border:0}.pv span{color:var(--mu)}.pv:empty{display:none}
+.warn{background:var(--ob);color:var(--oc);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:14.5px}.pv .warn{display:block}
+.er{color:var(--rc);font-weight:500;margin-top:8px;min-height:0}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;background:var(--sf);border:1px solid var(--ln);border-radius:12px}th,td{padding:8px 10px;text-align:start;border-bottom:1px solid var(--ln);white-space:nowrap}th{color:var(--mu);font-weight:500}
+#toast{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:#20302a;color:#fff;padding:10px 16px;border-radius:12px;z-index:30;display:flex;gap:14px;align-items:center;max-width:92%}
+#toast button{background:none;border:0;color:#ffd24d;font:inherit;font-weight:700}
+
+/* touch feedback */
+button,.btn,label.btn{transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .2s ease,background-color .15s;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+button:active,label.btn:active{transform:scale(.93);filter:brightness(.85);transition-duration:.07s}
+button.cd:active{transform:scale(.98);filter:none;background:var(--nb)}
+.ddb:active{transform:scale(.985)}
+nav button:active{transform:scale(.9)}
+.fab:active{transform:scale(.88)}
+.ddo:active{transform:none;filter:none;background:var(--nb)}
+.sh{animation:su .22s ease-out}
+@keyframes su{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+/* clean native selects */
+select{appearance:none;-webkit-appearance:none;padding-left:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a9a90' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center}
+/* mating stages */
+.stp{display:flex;gap:5px;margin:0 0 8px}
+.stp span{flex:1;text-align:center;font-size:12px;padding:6px 2px;border-radius:10px;background:var(--nb);color:var(--mu);border:1px solid var(--ln);white-space:nowrap}
+.stp .done{color:var(--pr);border-color:var(--pr)}
+.stp .done:before{content:"✓ "}
+.stp .cur{background:var(--pr);color:#fff;border-color:var(--pr);font-weight:700}
+.stp .skip{opacity:.4;text-decoration:line-through}
+.stn{font-size:13px;color:var(--mu);margin:0 0 12px;line-height:1.6}
+.fl.off label{opacity:.65}
+.fl.off input,.fl.off select,.fl.off .ddb{opacity:.5;background:var(--nb)}
+.fh{font-size:12px;margin-top:4px;line-height:1.5}
+.fl.off .fh{color:var(--wn,#b9770e)}
+/* status lines */
+.now{margin-top:6px;font-size:14px;line-height:1.5}
+.dt{white-space:nowrap}
+.kl{padding-inline-start:8px;border-inline-start:3px solid var(--ln)}
+.kl.k-r,.kl.k-b{border-inline-start-color:var(--rc)}.kl.k-y{border-inline-start-color:var(--yc)}.kl.k-g{border-inline-start-color:var(--gc)}
+/* merged doe card: nursing litter + new pregnancy in one place */
+.mg{padding:10px 12px}.mg>.row{margin-bottom:2px}
+.mc{display:block;width:100%;text-align:start;background:var(--bg);color:inherit;border:1px solid var(--ln);border-inline-start:4px solid var(--ln);border-radius:12px;padding:9px 10px;margin-top:8px;font:inherit}
+.mc.k-r,.mc.k-b{border-inline-start-color:var(--rc)}.mc.k-y{border-inline-start-color:var(--yc)}.mc.k-g{border-inline-start-color:var(--gc)}
+.mc:active{background:var(--nb);transform:none;filter:none}
+.mc .row b{font-weight:700}.sm{font-size:12px}
+.fg{margin-top:8px;padding:8px 10px;border-radius:10px;background:var(--rb);color:var(--rc);font-size:14px;font-weight:700}
+/* dropdown */
+.ddo small{color:var(--mu);font-size:12px;margin-inline-start:8px}
+.ddo .ck{margin-inline-start:6px}
+.ddo:disabled{opacity:.5}.ddo:disabled small{color:var(--wn,#b9770e)}
+.dd{position:relative}
+.ddb{width:100%;min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--ln);border-radius:12px;padding:8px 12px;background:var(--sf);color:var(--ink);font:inherit;text-align:start}
+.ddb .ddv{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ddb .ddc{color:var(--mu);font-size:12px}
+.ddl{margin-top:6px;border:1px solid var(--ln);border-radius:12px;background:var(--sf);box-shadow:0 6px 18px rgba(0,0,0,.2);overflow:hidden}
+.dds{border:0;border-bottom:1px solid var(--ln);border-radius:0;min-height:42px}
+.ddi{max-height:230px;overflow-y:auto;overscroll-behavior:contain}
+.ddo{display:flex;width:100%;justify-content:space-between;align-items:center;border:0;border-bottom:1px solid var(--ln);border-radius:0;background:none;color:var(--ink);font:inherit;padding:12px 14px;text-align:start;min-height:46px}
+.ddo:last-child{border-bottom:0}
+.ddo.sel,.ddo.nw{color:var(--pr);font-weight:700}
+.ddn{margin-top:8px}
+.dde{padding:14px;color:var(--mu);text-align:center;font-size:14px}
+</style>
+</head>
+<body>
+<header class="bar"><h1 id="ttl"></h1><button id="sync" class="pill c-n" data-tab="set">…</button></header>
+<main id="main"></main>
+<nav id="nav"></nav>
+<div id="sheet" hidden><div class="sh"><div class="shh"><b id="sht"></b><button id="shx" aria-label="إغلاق">✕</button></div><div id="shb"></div></div></div>
+<div id="toast" hidden></div>
+
+<script src="core.js"></script>
+
+<script id="app">
+(()=>{
+'use strict';
+const VER='29';
+const{D,F,calc,stats,alerts,dash,vac,kin,pack,importCheck,custAgg,SCHEMA,DEF,CH,clean,saleTotal,todayS,act}=Core;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const R2=n=>Math.round(n*100)/100,nf=n=>R2(n).toLocaleString('en-US'),money=n=>n==null?'—':nf(n)+' ج.م',pc=n=>n==null?'—':Math.round(n*100)+'%';
+const T0=()=>D(todayS());
+const NM={br:'تلقيح',does:'أم',bucks:'ذكر',sales:'عملية بيع',exp:'مصروف',cust:'زبون'};
+const TABS=[['today','اليوم','🔔'],['br','التناسل','🐇'],['an','القطيع','📋'],['acc','الحسابات','💰'],['set','الإعدادات','⚙️']];
+const SUBS={an:[['does','الأمهات'],['bucks','الذكور'],['vac','التحصينات']],acc:[['sum','الملخص'],['sales','المبيعات'],['exp','المصروفات'],['cust','الزباين']]};
+const CFGL=[['FirstTestDays','الأيام حتى الجسة الأولى (بعد التلقيح)','يوم'],['SecondTestDays','الأيام حتى الجسة الثانية','يوم'],['GestationDays','مدة الحمل','يوم'],['MaxBirthDays','أقصى مدة من التلقيح للولادة (للتحقق)','يوم'],['WeaningAge','سن الفطام (من الولادة)','يوم'],['MinWeanDays','أقل مدة بين الولادة والفطام (للتحقق)','يوم'],['RemateDays','أيام بعد الولادة لحد ما الأم تبقى جاهزة للتلقيح من جديد','يوم'],['BuckRestHours','راحة الذكر بين تلقيحتين (٠ = من غير تحقق)','ساعة'],['BacterialVaccineCycle','دورة التحصين البكتيري','يوم'],['ViralVaccineCycle','دورة التحصين الفيروسي','يوم'],['AlertWindow','نافذة التنبيه المبكر قبل الموعد','يوم'],['TargetSaleWeight','وزن البيع المستهدف','كجم'],['FirstMatingAge','سن جاهزية الأم للتلقيح الأول','يوم'],['MinAttempts','أقل عدد تلقيحات قبل التقييم','مرة'],['GoodRatePct','نسبة النجاح الممتازة','%'],['PoorRatePct','نسبة النجاح الضعيفة (للمراجعة)','%']];
+const CFGE=[['BirthAlertDays','تنبيه قبل الولادة المتوقعة بـ','يوم','هيجيلك تنبيه أصفر قبل موعد الولادة بالأيام دي، بدل ما تعرف يوم الولادة نفسه. اكتب ٠ لو مش عايز تنبيه مبكر.'],['WeanBeforeBirthDays','تنبيه فطام صغار الأم المرضعة الحامل — قبل ولادتها الجاية بـ','يوم','لو الأم لسه بترضع وانت لقّحتها من جديد: هيجيلك تنبيه تفطم صغارها لما يفضل على ولادتها الجاية الأيام دي. اكتب ٠ لإيقاف التنبيه ده.']];
+const ZOK=new Set(CFGE.map(x=>x[0]));
+const earlyHint=(k,v)=>{const G=S.cfg.GestationDays;return v>0&&isFinite(v)?'حاليًا التنبيه بيظهر يوم '+(G-v)+' من التلقيح (مدة الحمل '+G+' يوم).':'التنبيه ده متوقف دلوقتي.'};
+let tab='today',sub={an:'does',acc:'sum'},q='',flt='',pg=1,FS=null;
+const S={cfg:{...DEF},ch:{},v:0};for(const t in SCHEMA)S.ch[t]=[[]];
+const C={};const memo=(k,fn)=>{const e=C[k];if(e&&e.v===S.v)return e.r;const r=fn();C[k]={v:S.v,r};return r};
+const rows=t=>memo('r'+t,()=>[].concat(...S.ch[t]));
+const byId=t=>memo('i'+t,()=>{const m=new Map();for(const r of rows(t))m.set(r.id,r);return m});
+const codes=t=>memo('c'+t,()=>{const m=Object.create(null);for(const r of rows(t))m[r.c]=r;return m});
+const ST=()=>memo('st',()=>stats(rows('br'),S.cfg));
+const view=()=>({does:rows('does'),bucks:rows('bucks'),br:rows('br'),sales:rows('sales'),exp:rows('exp')});
+
+/* ---------- storage: IndexedDB on the device ---------- */
+let IDB=null,cur='loc',note='';
+const revs={},known={};let lossWarn=null,autoMeta=null,okT=0;let ready=false,hasSnap=null,loadErr=null,slow=false,bootStep='',bootMs=0,bootGen=0;
+const diag=(()=>{try{return JSON.parse(localStorage.rf_log||'[]').slice(-60)}catch(e){return[]}})();
+const dg=m=>{diag.push(new Date().toISOString().slice(5,10)+' '+new Date().toTimeString().slice(0,8)+' '+String(m).slice(0,200));if(diag.length>60)diag.shift();try{localStorage.rf_log=JSON.stringify(diag)}catch(e){}};
+const TO=Object.assign({open:8000,read:30000,snap:5000,slow:10000},window.__rfTimeouts||{});
+const withT=(p,ms,l)=>Promise.race([p,new Promise((_,no)=>setTimeout(()=>no(new Error('timeout:'+l)),ms))]);
+const STEPN={open:'فتح قاعدة البيانات',read:'قراءة السجلات',apply:'تجهيز السجلات',snap:'قراءة نسخة الأمان',render:'عرض الشاشة'};
+const skipN={},skipTotal=()=>Object.values(skipN).reduce((a,b)=>a+b,0);
+const rowsNow=()=>Object.fromEntries(Object.keys(S.ch).map(t=>[t,S.ch[t].reduce((a,c)=>a+c.length,0)]));
+const cntStr=o=>Object.entries(o).map(([k,v])=>k+':'+v).join(' ');
+const lastGet=()=>{try{return JSON.parse(localStorage.rf_last||'null')}catch(e){return null}};
+const lastSet=o=>{try{localStorage.rf_last=JSON.stringify(o)}catch(e){}};
+function lastUpdate(tables,merged){const L=lastGet()||{t:{}};L.t=L.t||{};for(const t of tables)if(merged[t])L.t[t]=merged[t].reduce((a,c)=>a+(Array.isArray(c)?c.length:0),0);L.at=Date.now();lastSet(L)}
+function saneRows(t,rs,bump){const out=[];for(const r of rs){
+if(!r||typeof r!=='object'||Array.isArray(r)||typeof r.id!=='string'||!r.id){bump();continue}
+let c;try{c=clean(t,r)}catch(e){bump();continue}
+c.id=r.id;if(SCHEMA[t].some(f=>f[3]&&c[f[0]]==null)){bump();continue}out.push(c)}return out}
+function saneCh(t,chunks){let n=0;const out=chunks.map(ch=>saneRows(t,Array.isArray(ch)?ch:[],()=>n++));skipN[t]=n;return out.length?out:[[]]}
+const bc=(()=>{try{return new BroadcastChannel('rf-sync')}catch(e){return null}})();
+const idbOpen=()=>new Promise((res,rej)=>{try{const q=indexedDB.open('rabbitfarm',1);q.onupgradeneeded=()=>q.result.createObjectStore('kv',{keyPath:'id'});q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}catch(e){rej(e)}});
+const idbAll=()=>new Promise((res,rej)=>{const q=IDB.transaction('kv').objectStore('kv').getAll(IDBKeyRange.upperBound('zz',true));q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});
+const idbPut=v=>new Promise((res,rej)=>{const t=IDB.transaction('kv','readwrite');t.objectStore('kv').put(v);t.oncomplete=res;t.onerror=t.onabort=()=>rej(t.error)});
+const idbGet=id=>new Promise((res,rej)=>{const q=IDB.transaction('kv').objectStore('kv').get(id);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});
+const readRange=t=>new Promise((res,rej)=>{const q=IDB.transaction('kv').objectStore('kv').getAll(IDBKeyRange.bound(t+'-',t+'-\uffff'));q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});
+const SM={ok:['✓ محفوظ','g'],busy:['… جارٍ الحفظ','y'],loc:['محفوظ على الجهاز فقط','n'],err:['⚠ تعذّر الحفظ','r']};
+function setSt(k,m){if(k==='loc'&&!IDB)k='err';cur=k;note=m||'';const p=$('#sync');p.textContent=m||SM[k][0];p.className='pill c-'+SM[k][1]}
+function applyDoc(d){if(d.id==='cfg'){S.cfg={...DEF,...d.cfg}}else if(S.ch[d.k]&&Number.isInteger(d.n)&&d.n>=0&&d.n<5000){const a=S.ch[d.k];while(a.length<=d.n)a.push([]);a[d.n]=Array.isArray(d.rows)?d.rows:[]}}
+const stamp=id=>{const r=Math.max(Date.now(),Math.floor(revs[id]||0)+1)+Math.random()*.5;revs[id]=r;return r};
+const noteDoc=d=>{revs[d.id]=Math.max(revs[d.id]||0,d.rev||0);const k=d.id==='cfg'?'cfg':d.k;(known[k]=known[k]||new Map()).set(d.id,d.rev)};
+const chunksFromDocs=docs=>{const c=[];for(const d of docs){const n=d.n;if(!Number.isInteger(n)||n<0||n>=5000)continue;while(c.length<=n)c.push([]);c[n]=Array.isArray(d.rows)?d.rows:[]}return c.length?c:[[]]};
+const sameDocs=(t,docs)=>{const k=known[t];if(!k)return docs.length===0;if(k.size!==docs.length)return false;for(const d of docs)if(k.get(d.id)!==d.rev)return false;return true};
+
+/* Every save is recorded as a small operation (put / delete) and applied to the data that is
+   ALREADY ON DISK inside one IndexedDB transaction. Transactions are serialised by the browser,
+   so several open tabs/windows can never overwrite each other's records. */
+const opq=new Map(),replaceT=new Map(),running=[],needSync=new Set();let pendCfg=null,sch=false,failed=false;
+const sched=()=>{if(!sch){sch=true;if(IDB&&ready&&cur!=='err')setSt('busy');queueMicrotask(flush)}};
+function recOp(t,id,op){let m=opq.get(t);if(!m){m=new Map();opq.set(t,m)}m.set(id,op);sched()}
+const qc=()=>{pendCfg={...S.cfg};sched()};
+function replaceTable(t,rs){opq.delete(t);replaceT.set(t,rs.slice());sched()}
+function memPut(t,r){const p=locate(t,r.id);if(p){S.ch[t][p[0]][p[1]]=r;return}const a=S.ch[t];let l=a[a.length-1];if(!l||l.length>=CH){l=[];a.push(l)}l.push(r)}
+function memDel(t,id){const p=locate(t,id);if(p)S.ch[t][p[0]].splice(p[1],1)}
+function reapply(t){for(const b of[...running,{ops:opq,reps:replaceT}]){if(b.reps.has(t))S.ch[t]=pack(b.reps.get(t));const o=b.ops.get(t);if(o)for(const[id,op]of o){if(op.k==='d')memDel(t,id);else memPut(t,op.r)}}}
+function flush(){sch=false;
+if(!opq.size&&!replaceT.size&&!pendCfg)return;
+if(!IDB){opq.clear();replaceT.clear();pendCfg=null;return}
+const batch={ops:new Map(opq),reps:new Map(replaceT),cfg:pendCfg,foreign:new Set(),written:new Set(),done:false};opq.clear();replaceT.clear();pendCfg=null;running.push(batch);
+const tables=new Set([...batch.ops.keys(),...batch.reps.keys()]),merged={};dg('save: '+[...tables].map(t=>t+(batch.reps.has(t)?' (replace)':' x'+((batch.ops.get(t)||{size:0}).size))).join(', ')+(batch.cfg?' +settings':''));
+try{const tx=IDB.transaction('kv','readwrite'),st=tx.objectStore('kv');
+if(batch.cfg){st.put({id:'cfg',k:'cfg',rev:stamp('cfg'),cfg:batch.cfg});(known.cfg=known.cfg||new Map()).set('cfg',revs.cfg)}
+for(const t of tables){const rq=st.getAll(IDBKeyRange.bound(t+'-',t+'-\uffff'));
+rq.onsuccess=()=>{const old=rq.result,fresh=!sameDocs(t,old),changed=new Set();let chunks;
+if(batch.reps.has(t)){chunks=pack(batch.reps.get(t));chunks.forEach((_,i)=>changed.add(i));for(const d of old)if(!(d.n<chunks.length))st.delete(d.id)}
+else chunks=chunksFromDocs(old);
+const o=batch.ops.get(t);
+if(o&&o.size){const where=new Map();chunks.forEach((c,ci)=>{for(const r of c)if(r&&typeof r==='object'&&typeof r.id==='string')where.set(r.id,ci)});
+for(const[id,op]of o){const ci=where.get(id);
+if(op.k==='d'){if(ci!=null){const c=chunks[ci],j=c.findIndex(x=>x&&x.id===id);if(j>=0)c.splice(j,1);changed.add(ci);where.delete(id)}}
+else if(ci!=null){const c=chunks[ci],j=c.findIndex(x=>x&&x.id===id);if(j>=0)c[j]=op.r;else c.push(op.r);changed.add(ci)}
+else{let l=chunks[chunks.length-1];if(l.length>=CH){l=[];chunks.push(l)}l.push(op.r);where.set(id,chunks.length-1);changed.add(chunks.length-1)}}
+for(const ci of[...changed])if(chunks[ci].length>1&&JSON.stringify(chunks[ci]).length>120000){const hh=chunks[ci].splice(chunks[ci].length>>1);chunks.push(hh);changed.add(chunks.length-1)}}
+const nk=batch.reps.has(t)?new Map():new Map(old.map(d=>[d.id,d.rev]));
+for(const ci of changed){const id=t+'-'+ci,rev=stamp(id);st.put({id,k:t,n:ci,rev,rows:chunks[ci]});nk.set(id,rev)}
+known[t]=nk;merged[t]=chunks;if(fresh)batch.foreign.add(t);batch.written.add(t)}}
+tx.oncomplete=()=>finish(batch,merged,true);
+tx.onerror=tx.onabort=()=>finish(batch,merged,false,tx.error)}
+catch(e){finish(batch,merged,false,e)}}
+function finish(batch,merged,good,err){if(batch.done)return;batch.done=true;const i=running.indexOf(batch);if(i>=0)running.splice(i,1);
+if(good){if(failed){failed=false;setSt('loc')}
+let ch=false;for(const t of batch.foreign){S.ch[t]=saneCh(t,merged[t]);reapply(t);ch=true}
+if(ch){S.v++;if(!FS)render()}
+try{bc&&bc.postMessage({t:[...batch.written],c:!!batch.cfg})}catch(e){}
+lastUpdate([...batch.written],merged);dg('saved ok');
+if(!opq.size&&!replaceT.size&&!pendCfg&&!running.length){setSt('ok','✓ اتحفظ');clearTimeout(okT);okT=setTimeout(()=>{if(cur==='ok')setSt('loc')},2500)}
+if([...batch.ops.values()].some(m=>m.size)){try{toast('تم الحفظ ✓')}catch(e){}}}
+else{dg('save FAILED: '+((err&&(err.name||err.message))||'unknown'));
+for(const t of batch.written)delete known[t];
+for(const[t,ops]of batch.ops){if(replaceT.has(t))continue;const m=opq.get(t)||new Map();for(const[id,op]of ops)if(!m.has(id))m.set(id,op);opq.set(t,m)}
+for(const[t,rs]of batch.reps)if(!replaceT.has(t))replaceT.set(t,rs);
+if(batch.cfg&&!pendCfg)pendCfg=batch.cfg;
+const quota=err&&err.name==='QuotaExceededError';
+setSt('err',quota?'مساحة التخزين ممتلئة':'تعذّر الحفظ على الجهاز');
+if(!failed){failed=true;toast(quota?'⚠ مساحة تخزين الجهاز ممتلئة — خد نسخة احتياطية وفضّي مساحة':'⚠ تعذّر الحفظ على الجهاز — هحاول تاني، وخد نسخة احتياطية')}
+setTimeout(sched,4000)}
+if(needSync.size){const ts=[...needSync];needSync.clear();syncTables(ts)}}
+const busyT=t=>opq.has(t)||replaceT.has(t)||running.some(b=>b.ops.has(t)||b.reps.has(t));
+async function syncTables(ts){if(!IDB||!ready)return;let ch=false;
+try{for(const t of ts){
+if(t==='cfg'){if(pendCfg||running.some(b=>b.cfg)){needSync.add('cfg');continue}const d=await idbGet('cfg');if(d&&(!known.cfg||known.cfg.get('cfg')!==d.rev)){applyDoc(d);noteDoc(d);ch=true}continue}
+if(!S.ch[t])continue;
+if(busyT(t)){needSync.add(t);continue}
+const docs=await readRange(t);if(sameDocs(t,docs))continue;
+if(busyT(t)){needSync.add(t);continue}
+dg('adopted '+t+' from disk');S.ch[t]=saneCh(t,chunksFromDocs(docs));known[t]=new Map(docs.map(d=>[d.id,d.rev]));for(const d of docs)revs[d.id]=Math.max(revs[d.id]||0,d.rev);ch=true}}
+catch(e){}
+if(ch){S.v++;if(!FS)render()}}
+const syncAll=()=>syncTables([...Object.keys(S.ch),'cfg']);
+const snapInfo=d=>d?{at:d.at,counts:Object.fromEntries(Object.keys(d.t).map(k=>[k,d.t[k].length]))}:null;
+async function autoSnap(){if(!IDB||!ready||lossWarn)return;try{const tot=curTotal();if(!tot||tot>150000)return;const day=todayS();
+let meta=null;try{meta=await idbGet('zz-auto-meta')}catch(e){}meta=meta||{id:'zz-auto-meta',k:'autometa',slots:[]};
+if(meta.slots[0]&&meta.slots[0].day===day){autoMeta=meta;return}
+const used=new Set(meta.slots.map(s=>s.slot));let slot=[0,1,2].find(i=>!used.has(i));if(slot==null)slot=meta.slots[meta.slots.length-1].slot;
+const t=Object.fromEntries(Object.keys(S.ch).map(k=>[k,rows(k).slice()])),at=new Date().toISOString();
+await idbPut({id:'zz-auto-'+slot,k:'auto',at,day,cfg:{...S.cfg},t});
+const counts=Object.fromEntries(Object.keys(t).map(k=>[k,t[k].length]));meta.slots=[{slot,day,at,counts},...meta.slots.filter(s=>s.slot!==slot)].slice(0,3);await idbPut(meta);autoMeta=meta;dg('daily safety copy '+day+' ('+tot+' rows)')}catch(e){dg('safety copy failed: '+((e&&e.message)||e))}}
+async function restoreAuto(slot){if(!IDB)return;let d;try{d=await idbGet('zz-auto-'+slot)}catch(e){d=null}if(!d||!d.t){toast('النسخة دي مش موجودة');return}
+try{await saveSnap()}catch(e){toast('تعذّر حفظ نسخة أمان للحالة الحالية');return}
+toast('جارٍ حفظ البيانات على الجهاز… ماتقفلش التطبيق');applyData({cfg:d.cfg,t:d.t});lossWarn=null;dg('restored safety copy '+d.day);render();
+const w=await whenIdle();if(w&&!failed)toast('تم الاسترجاع من نسخة الأمان ✓');else toast('⚠ الحفظ على الجهاز لسه ما خلصش — سيب التطبيق مفتوح')}
+function autoCard(){const m=autoMeta;if(!m||!m.slots||!m.slots.length)return'';return `<div class="cd"><b>🛟 نسخ أمان تلقائية</b><div class="mu">بتتاخد مرة كل يوم، واحنا محتفظين بآخر 3 أيام.</div>${m.slots.map(s=>`<div class="row" style="margin-top:8px"><span>${esc(s.day)} · ${Object.values(s.counts).reduce((a,b)=>a+b,0)} سجل</span><button class="btn s" data-act="autores" data-slot="${s.slot}">استرجاع</button></div>`).join('')}</div>`}
+function lossBanner(){if(!lossWarn)return'';const nm={does:'الأمهات',bucks:'الذكور',br:'التلقيحات',sales:'المبيعات',exp:'المصروفات',cust:'الزباين'};
+const s=lossWarn.map(x=>(nm[x.t]||x.t)+': كان '+x.was+' وبقى '+x.now).join(' · '),l=autoMeta&&autoMeta.slots&&autoMeta.slots[0];
+return `<div class="er">⚠ بياناتك على الجهاز أقل من آخر مرة اتحفظت (${esc(s)}). ماتضيفش ولا تمسح حاجة دلوقتي.</div><div class="acts">${l?`<button class="btn" data-act="autores" data-slot="${l.slot}">استرجاع آخر نسخة أمان (${esc(l.day)})</button>`:''}<button class="btn s" data-act="lossok">ده طبيعي — اخفِ التحذير</button></div>`}
+async function whenIdle(ms=45000){const t0=Date.now();while(opq.size||replaceT.size||pendCfg||running.length||sch){if(Date.now()-t0>ms)return false;await new Promise(r=>setTimeout(r,40))}return true}
+async function saveSnap(){if(!curTotal())return;const t=Object.fromEntries(Object.keys(S.ch).map(k=>[k,rows(k).slice()]));const d={id:'zz-snap',k:'snap',at:new Date().toISOString(),cfg:{...S.cfg},t};await idbPut(d);hasSnap=snapInfo(d)}
+function applyData(d){S.cfg={...DEF,...d.cfg};for(const t in S.ch){const rs=d.t[t]||[];S.ch[t]=pack(rs);replaceTable(t,rs)}qc();S.v++}
+if(bc)bc.onmessage=e=>{const m=e.data;syncTables(m&&Array.isArray(m.t)?[...m.t,...(m.c?['cfg']:[])]:[...Object.keys(S.ch),'cfg'])};
+addEventListener('pageshow',()=>syncAll());addEventListener('focus',()=>syncAll());
+async function boot(){const gen=++bootGen,t0=Date.now();slow=false;loadErr=null;let db=null,rawCnt={};
+try{bootStep='open';db=await withT(idbOpen(),TO.open,'open');if(gen!==bootGen){try{db.close()}catch(_){}return}
+IDB=db;bootStep='read';const docs=await withT(idbAll(),TO.read,'read');if(gen!==bootGen)return;
+rawCnt={};for(const d of docs)if(d&&S.ch[d.k]&&Array.isArray(d.rows))rawCnt[d.k]=(rawCnt[d.k]||0)+d.rows.length;
+bootStep='apply';for(const t in S.ch)S.ch[t]=[[]];for(const k of Object.keys(known))delete known[k];
+for(const d of docs){applyDoc(d);noteDoc(d)}for(const t in S.ch)S.ch[t]=saneCh(t,S.ch[t])}
+catch(e){if(gen!==bootGen)return;try{db&&db.close()}catch(_){}IDB=null;loadErr=(e&&e.message)||String(e);dg('boot failed: '+loadErr)}
+if(IDB)try{bootStep='snap';hasSnap=snapInfo(await withT(idbGet('zz-snap'),TO.snap,'snap'))}catch(e){hasSnap=null}
+if(IDB)try{autoMeta=await withT(idbGet('zz-auto-meta'),TO.snap,'snap')}catch(e){autoMeta=null}
+if(gen!==bootGen)return;
+lossWarn=null;if(IDB){const L=lastGet();if(L&&L.t){const bad=[];for(const t in L.t)if((rawCnt[t]||0)<L.t[t])bad.push({t,was:L.t[t],now:rawCnt[t]||0});if(bad.length){lossWarn=bad;dg('DATA LOWER THAN LAST SAVE: '+bad.map(x=>x.t+' '+x.was+'->'+x.now).join(', '))}}
+if(!lossWarn){const L2=L&&L.t?L:{t:{}};for(const t in S.ch)L2.t[t]=rawCnt[t]||0;L2.at=Date.now();lastSet(L2)}}
+bootStep='render';ready=true;slow=false;bootMs=Date.now()-t0;dg('boot ok '+bootMs+'ms | on disk: '+cntStr(rawCnt)+' | skipped '+skipTotal()+' | v'+VER);S.v++;render();setSt(IDB?'loc':'err');
+setTimeout(()=>{autoSnap()},4000)}
+async function retryBoot(){ready=false;slow=false;loadErr=null;dg('retry');render();setTimeout(()=>{if(!ready){slow=true;render()}},TO.slow);await boot()}
+async function rawBackup(){try{const db=await withT(idbOpen(),TO.open,'open');
+const docs=await withT(new Promise((res,rej)=>{const q=db.transaction('kv').objectStore('kv').getAll();q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}),TO.read,'read');db.close();
+const t=Object.fromEntries(Object.keys(SCHEMA).map(k=>[k,[]]));let cfg={};
+for(const d of docs){if(d.id==='cfg')cfg=d.cfg||{};else if(t[d.k]&&Array.isArray(d.rows))for(const r of d.rows)if(r&&typeof r==='object')t[d.k].push(r)}
+const r=await shareFile('rabbit-farm-emergency-'+todayS()+'.json','application/json',JSON.stringify({v:1,at:new Date().toISOString(),cfg,t}),'نسخة طوارئ - Rabbit Farm');
+if(r===1){try{localStorage.setItem('rf_bk',String(Date.now()))}catch(e){}toast('تم تجهيز نسخة الطوارئ ✓')}}catch(e){dg('raw backup failed '+(e&&e.message));toast('تعذّر قراءة البيانات للنسخة الطارئة')}}
+
+/* ---------- data ops ---------- */
+function locate(t,id){const a=S.ch[t];for(let i=0;i<a.length;i++){const j=a[i].findIndex(x=>x.id===id);if(j>=0)return[i,j]}return null}
+function put(t,r){if(!ready){toast('استنى لحظة… التطبيق بيحمّل بياناتك');return}memPut(t,r);recOp(t,r.id,{k:'p',r});S.v++}
+function del(t,id){if(!ready){toast('استنى لحظة… التطبيق بيحمّل بياناتك');return}if(!locate(t,id))return;memDel(t,id);recOp(t,id,{k:'d'});S.v++}
+
+/* ---------- ui helpers ---------- */
+let tt=0;
+function toast(m,undo){const e=$('#toast');e.innerHTML='<span>'+esc(m)+'</span>'+(undo?'<button id="un">تراجع</button>':'');e.hidden=false;clearTimeout(tt);tt=setTimeout(()=>{e.hidden=true},undo?6000:2500);if(undo)$('#un').onclick=()=>{e.hidden=true;undo()}}
+function showSheet(){$('#sheet').hidden=false;try{history.pushState({s:1},'')}catch(e){}}
+function hideSheet(){$('#sheet').hidden=true;FS=null}
+function closeSheet(){if(history.state&&history.state.s)history.back();else hideSheet()}
+addEventListener('popstate',()=>{if(!$('#sheet').hidden)hideSheet()});
+const curT=()=>tab==='br'?'br':tab==='an'?sub.an:tab==='acc'&&sub.acc!=='sum'?sub.acc:null;
+function go(tb,sb,fl){tab=tb;if(sb)sub[tb]=sb;q='';flt=fl||'';pg=1;render();try{scrollTo(0,0)}catch(e){}}
+
+/* ---------- views ---------- */
+const fx=x=>esc(x).replace(/\d{4}-\d{2}-\d{2}/g,'<bdi dir="ltr" class="dt">$&</bdi>');
+const MAXB=4,SEVC={u:['🔴 عاجل','r'],s:['🟡 قريب','y'],g:['🟢 جارية','g']};
+/* a doe can have two live cycles at once (nursing litter + new pregnancy): we show her ONCE. Extra stale open cycles beyond MAXB stay as their own cards */
+function caseSplit(cs){const by=cs.cyc.slice().sort((a,b)=>b.r.d<a.r.d?-1:b.r.d>a.r.d?1:0),keep=new Set(by.slice(0,MAXB).map(x=>x.r.id));return{shown:cs.cyc.filter(x=>keep.has(x.r.id)),rest:cs.cyc.filter(x=>!keep.has(x.r.id))}}
+function caseHtml(cs,note){const{shown,rest}=caseSplit(cs);
+if(shown.length===1&&!cs.flags.length&&!rest.length)return brCard({r:shown[0].r,o:shown[0].o});
+const sv=SEVC[cs.sev],blk=x=>`<button class="mc k-${x.k}" data-open="br|${x.r.id}"><div class="row"><b>${x.i} ${fx(x.t)}</b><span class="ch c-${x.o.st[1]}">${fx(x.o.st[0])}</span></div><div class="mu">${fx(x.n)}</div><div class="mu sm">تلقيح ${fx(x.r.d)}${x.r.tm?' '+esc(x.r.tm):''} × ذكر ${esc(x.r.b)}${x.r.bd?' · ولادة '+fx(x.r.bd):''}</div></button>`;
+return `<div class="cd mg"><div class="row"><b>الأم ${esc(cs.m)}</b><span class="ch c-${sv[1]}">${sv[0]}</span></div>${shown.map(blk).join('')}${cs.flags.map(f=>`<div class="fg">${fx(f.t)}</div>`).join('')}${note&&rest.length?`<div class="mu" style="margin-top:8px">و ${rest.length} دورة مفتوحة تانية للأم دي — افتحها من «التناسل»</div>`:''}</div>`}
+const brCard=({r,o},extra,pair)=>`<button class="cd" data-open="br|${r.id}"><div class="row"><b>${pair?esc(r.m)+' × '+esc(r.b):'الأم '+esc(r.m)}</b><span class="ch c-${o.st[1]}">${o.st[0]}</span></div><div class="mu">${esc(Core.matingAge(r,T0()))} · ${r.d}${extra?' · '+extra:''}</div></button>`;
+const vacCard=(a,t,b,v)=>{const ln=(lb,x,f)=>`<div class="vr"><span>${lb}${x.next?' · '+F(x.next):''}</span><span class="ch c-${x.st[1]}">${x.st[0]}</span><button class="mini" data-vac="${t}|${a.id}|${f}">حصّنت اليوم</button></div>`;
+return `<div class="cd"><div class="row"><b>${esc(a.c)}</b><span class="mu">${t==='does'?'أم':'ذكر'}</span></div>${ln('بكتيري',b,'vb')}${ln('فيروسي',v,'vv')}</div>`};
+function todayV(){const c=S.cfg,T=T0();const A=memo('al'+todayS(),()=>alerts(view(),c,T));
+let dt=todayS();try{dt=new Date().toLocaleDateString('ar-EG-u-nu-latn',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}catch(e){}
+const k=(n,l,x)=>`<div class="k c-${x}"><b>${n}</b><span>${l}</span></div>`;
+let h=`<div class="hero"><small>${esc(dt)}</small><h2>${A.cu.length?A.cu.length+' حالة تحتاج إجراء اليوم':'مفيش حالات عاجلة النهاردة'}</h2></div><div class="kp3">${k(A.cu.length,'عاجل','r')}${k(A.cs.length,'قريب','y')}${k(A.late,'تحصين متأخر','o')}${k(A.kins.length,'قرابة','b')}</div>${lossBanner()}${skipWarn()}${bkWarn()}`;
+if(!rows('does').length&&!rows('bucks').length)h+=`<div class="cd" style="margin-top:14px"><b>ابدأ من هنا</b><div class="mu">1) أضف الأمهات والذكور من «القطيع».<br>2) سجّل التلقيحات من «التناسل».<br>التنبيهات هتظهر هنا تلقائيًا.</div><div class="acts"><button class="btn" data-go="an|does|">إضافة أم</button><button class="btn s" data-go="an|bucks|">إضافة ذكر</button></div></div>`;
+const sec=(ti,L,fn,g)=>L.length?`<h3>${ti} <small>${L.length}</small></h3>${L.slice(0,20).map(fn).join('')}${L.length>20&&g?`<button class="lnk" data-go="${g}">عرض الكل (${L.length})</button>`:''}`:'';
+h+=sec('🔴 يحتاج إجراء اليوم',A.cu,x=>caseHtml(x,1),'br||u')+sec('🟡 قريب من موعده',A.cs,x=>caseHtml(x,1),'br||s')+sec('💉 تحصينات متأخرة أو قريبة',A.vacs,x=>vacCard(x.a,x.t,x.b,x.v),'an|vac|l')+sec('⚠️ تنبيهات قرابة',A.kins,x=>brCard(x,'قرابة قريبة محتملة',true),'')+sec('🐰 أمهات جاهزة للتلقيح الأول',A.ready,x=>`<button class="cd" data-act="newbr" data-m="${esc(x.a.c)}"><b>الأم ${esc(x.a.c)}</b><span class="mu"> · جاهزة من ${F(x.from)} — اضغط لتسجيل تلقيح</span></button>`,'')+sec('🐰 أمهات جاهزة للتلقيح من جديد',A.again,x=>`<button class="cd" data-act="newbr" data-m="${esc(x.a.c)}"><b>الأم ${esc(x.a.c)}</b><span class="mu"> · ${esc(x.why)} — اضغط لتسجيل تلقيح</span></button>`,'');
+return h}
+function sumV(){const d=memo('d'+todayS(),()=>dash(view(),S.cfg,T0()));const k=(l,v,x)=>`<div class="k ${x||''}"><span>${l}</span><b>${v}</b></div>`;
+return `<h3>كل الفترات</h3><div class="kp">${k('صافي الربح',money(d.net),d.net<0?'neg':'')}${k('إجمالي الإيراد',money(d.rev))}${k('إجمالي المصروفات',money(d.exp))}${k('تكلفة الكيلو (تقريبية)',money(d.cpk))}</div>
+<h3>السنة الحالية</h3><div class="kp">${k('الإيراد',money(d.ry))}${k('المصروفات',money(d.ey))}${k('صافي الربح',money(d.ny),d.ny<0?'neg':'')}${k('متوسط الربح الشهري',money(d.avgM),d.avgM<0?'neg':'')}</div>
+<h3>الإنتاج</h3><div class="kp">${k('أمهات نشطة',d.activeDoes)}${k('ذكور نشطة',d.activeBucks)}${k('أمهات تحتاج مراجعة',d.badDoes)}${k('ذكور تحتاج مراجعة',d.badBucks)}${k('نسبة الفطام العامة',pc(d.wp))}${k('إجمالي المفطومين',d.weaned)}${k('عدد التلقيحات',d.matings)}${k('الوزن المباع (كجم)',nf(d.kg))}</div>
+<h3>سنة بسنة</h3>${d.years.length?`<div class="tbl"><table><tr><th>السنة</th><th>الإيراد</th><th>المصروف</th><th>الصافي</th></tr>${d.years.map(y=>`<tr><td>${y.y}</td><td>${nf(y.rev)}</td><td>${nf(y.exp)}</td><td style="color:var(--${y.net<0?'rc':'gc'})">${nf(y.net)}</td></tr>`).join('')}</table></div>`:'<div class="empty">هتظهر هنا بعد تسجيل مبيعات ومصروفات</div>'}`}
+function listShell(t){const FL={br:[['','الكل'],['u','عاجل'],['s','قريب'],['g','جارية'],['x','مكتملة']],vac:[['','الكل'],['l','متأخر'],['s','قريب']],does:[['','الكل'],['a','نشطة'],['w','تحتاج مراجعة']]};FL.bucks=FL.does;const f=FL[t];
+return `<div class="tb"><input id="q" type="search" placeholder="بحث…" value="${esc(q)}" autocomplete="off">${f?`<select id="flt">${f.map(([k,l])=>`<option value="${k}"${flt===k?' selected':''}>${l}</option>`).join('')}</select>`:''}</div><div id="lst"></div>${t==='vac'?'':`<button class="fab" data-add="${t}" aria-label="إضافة">＋</button>`}`}
+const sortD=(R,k)=>R.slice().sort((a,b)=>a[k]<b[k]?1:a[k]>b[k]?-1:0);
+function items(t){const c=S.cfg,T=T0(),R=rows(t);const mk=(id,title,sb,ch,k,f,dim,x)=>({tb:t,id,title,sub:sb,c:ch,k,f:f||'',dim,ids:x.ids,prim:x.prim,rest:x.rest||'',numAll:!!x.numAll,s2:x.s2||'',s3:x.s3||'',ls:x.ls});
+if(t==='br'){const FM={r:'u',b:'u',y:'s',g:'g',ok:'x',n:'g',o:'g'};
+const one=r=>{const o=calc(r,c,T),k=o.st?o.st[1]:'',sb=[r.d+(r.tm?' '+r.tm:''),r.bd?'ولادة '+r.bd:o.exp?'ولادة متوقعة '+F(o.exp):'',r.al!=null?r.al+' حي':''].filter(Boolean).join(' · '),it=mk(r.id,r.m+' × '+r.b,sb,o.st&&o.st[0],k,r.r1==='فاضي'?'x':FM[k],undefined,{ids:r.m+' '+r.b,prim:r.m,rest:[r.d,r.tm,r.bd,r.nt,o.st&&o.st[0],Core.matingAge(r,T)].filter(Boolean).join(' '),s2:Core.matingAge(r,T)});it.d=r.d;return it};
+const CS=Core.cases(view(),c,T),liveIds=new Set(),out=[];
+for(const cs of CS.values())for(const x of cs.cyc)liveIds.add(x.r.id);
+for(const r of R)if(!liveIds.has(r.id))out.push(one(r));
+for(const cs of CS.values()){const{shown,rest}=caseSplit(cs);for(const x of rest)out.push(one(x.r));
+if(shown.length===1&&!cs.flags.length){out.push(one(shown[0].r));continue}
+out.push({tb:'br',id:'m:'+cs.m,h:caseHtml(cs,0),f:{u:'u',s:'s',g:'g'}[cs.sev],ids:cs.m+' '+shown.map(x=>x.r.b).join(' '),prim:cs.m,numAll:false,s2:'',s3:'',d:shown.reduce((a,x)=>x.r.d>a?x.r.d:a,''),rest:shown.map(x=>[x.r.d,x.r.tm,x.r.bd,x.r.nt,x.o.st[0],x.t,x.n,Core.matingAge(x.r,T)].filter(Boolean).join(' ')).join(' ')+' '+cs.flags.map(f=>f.t).join(' ')})}
+return out.sort((a,b)=>a.d<b.d?1:a.d>b.d?-1:0)}
+if(t==='does'||t==='bucks'){const X=ST()[t==='does'?'M':'B'],NW=t==='does'?Core.doeNow(view(),c,T):Core.buckNow(view(),c,Date.now());return R.slice().sort((a,b)=>a.c.localeCompare(b.c,'ar',{numeric:true})).map(a=>{const x=X[a.c]||Core.empty(c);return mk(a.id,a.c+(a.sl?' · '+a.sl:''),`${x.n} تلقيح · نجاح ${pc(x.sr)} · فطام ${pc(x.wp)}`+(act(a)?'':' · '+a.s),x.rate[0],x.rate[1],(act(a)?'a':'')+(x.rate[1]==='o'?'w':''),!act(a),{ids:a.c,prim:a.c,rest:[a.sl,a.s,a.src,a.nt,x.rate[0],(NW.get(a.c)||{}).text,(NW.get(a.c)||{}).next].filter(Boolean).join(' '),s2:(NW.get(a.c)||{}).text,s3:(NW.get(a.c)||{}).next,ls:(NW.get(a.c)||{}).lines})})}
+if(t==='sales')return sortD(R,'d').map(s=>mk(s.id,`${s.n} أرنب · ${money(saleTotal(s))}`,[s.d,s.cu,R2(s.w)+' كجم',s.n?'متوسط '+R2(s.w/s.n)+' كجم':''].filter(Boolean).join(' · '),undefined,undefined,undefined,undefined,{ids:(s.cu||'')+' '+(s.bt||''),prim:s.cu||'',rest:[s.d,s.cu,s.n,s.w,s.p,s.nt,money(saleTotal(s))].filter(v=>v!=null&&v!=='').join(' '),numAll:true}));
+if(t==='exp')return sortD(R,'d').map(e=>mk(e.id,`${e.ty} · ${money(e.a)}`,[e.d,e.dt].filter(Boolean).join(' · '),undefined,undefined,undefined,undefined,{ids:e.ty||'',prim:e.ty||'',rest:[e.d,e.dt,e.a,e.nt,money(e.a)].filter(v=>v!=null&&v!=='').join(' '),numAll:true}));
+if(t==='cust'){const A=memo('ca',()=>custAgg(rows('sales')));return R.slice().sort((a,b)=>a.c.localeCompare(b.c,'ar')).map(u=>{const x=A[u.c]||{n:0,rab:0,kg:0,paid:0};return mk(u.id,u.c+(u.ty?' · '+u.ty:''),`${x.n} مرة · ${x.rab} أرنب · ${money(x.paid)}`+(x.kg?' · '+money(x.paid/x.kg)+'/كجم':''),undefined,undefined,undefined,undefined,{ids:u.c+' '+(u.ph||''),prim:u.c,rest:[u.ty,u.nt].filter(Boolean).join(' ')})})}
+return[]}
+function vacItems(){const c=S.cfg,T=T0(),out=[],P={r:0,y:1,n:2,g:3};
+for(const t of['does','bucks'])for(const a of rows(t)){if(!act(a))continue;const b=vac(a.vb,c.BacterialVaccineCycle,c,T),v=vac(a.vv,c.ViralVaccineCycle,c,T);
+out.push({p:Math.min(P[b.st[1]],P[v.st[1]]),f:(b.st[1]==='r'||v.st[1]==='r'?'l':'')+(b.st[1]==='y'||v.st[1]==='y'?'s':''),hay:a.c.toLowerCase(),ids:a.c,prim:a.c,rest:[a.sl,a.s,b.st[0],v.st[0]].filter(Boolean).join(' '),h:vacCard(a,t,b,v)})}
+return out.sort((x,y)=>x.p-y.p||(x.hay<y.hay?-1:1))}
+const lineH=l=>`<div class="now kl k-${l.k||'n'}">${l.i?esc(l.i)+' ':''}${fx(l.t)}${l.n?`<div class="mu">${fx(l.n)}</div>`:''}</div>`;
+const cardHtml=x=>x.h||`<button class="cd${x.dim?' dim':''}" data-open="${x.tb}|${x.id}"><div class="row"><b>${esc(x.title)}</b>${x.c?`<span class="ch c-${x.k}">${esc(x.c)}</span>`:''}</div><div class="mu">${esc(x.sub)}</div>${x.ls?x.ls.map(lineH).join(''):''}${!x.ls&&x.s2?`<div class="now">${esc(x.s2)}</div>`:''}${!x.ls&&x.s3?`<div class="mu">${esc(x.s3)}</div>`:''}</button>`;
+function fillList(){const t=curT();if(!t)return;let it=t==='vac'?vacItems():memo('it:'+t+':'+todayS()+(t==='bucks'?':'+Math.floor(Date.now()/6e4):''),()=>items(t));const tk=Core.searchTokens(q);
+if(tk.length){it=it.filter(x=>Core.searchOk(x,tk));it=Core.searchRank(it,tk)}if(flt)it=it.filter(x=>x.f&&x.f.includes(flt));
+const n=it.length,sh=it.slice(0,pg*30),base=t==='vac'?rows('does').length+rows('bucks').length:rows(t).length;
+$('#lst').innerHTML=(n?sh.map(cardHtml).join(''):`<div class="empty">${base?'مفيش نتائج مطابقة':'لسه مفيش بيانات — اضغط ＋ للإضافة'}</div>`)+(n>sh.length?`<button class="lnk" data-more="1">عرض المزيد (${n-sh.length})</button>`:'')}
+function earlyV(){return `<h3>🔔 التنبيهات المبكرة للولادة والفطام</h3><div class="cd">${CFGE.map(([k,l,u,h])=>`<div class="fl"><label for="e_${k}">${l} (${u})</label><input id="e_${k}" type="number" inputmode="numeric" min="0" step="1" data-cfg="${k}" value="${S.cfg[k]}"><div class="mu fh" style="margin-top:6px">${esc(h)}</div><div class="mu fh" id="eh_${k}"><b>${esc(earlyHint(k,S.cfg[k]))}</b></div></div>`).join('')}<button class="btn" style="width:100%" data-act="svc">حفظ التنبيهات المبكرة</button></div>`}
+function setV(){const ts=Object.keys(S.ch).map(t=>[t,rows(t).length]);const kb=Math.round(JSON.stringify(Object.keys(S.ch).map(t=>rows(t))).length/1024);
+const tx=cur==='ok'?'كل البيانات محفوظة على الجهاز وعلى حسابك.':cur==='busy'?'جارٍ الحفظ…':cur==='loc'?'كل البيانات محفوظة على جهازك وتشتغل بدون إنترنت. خد نسخة احتياطية كل فترة وابعتها لنفسك.':'تعذّر الحفظ — نزّل نسخة احتياطية الآن.';
+return `<h3>الحفظ والنسخ الاحتياطي</h3><div class="cd"><b>${tx}</b><div class="mu">${ts.map(([t,n])=>NM[t]+': '+n).join(' · ')} · حوالي ${kb} كيلوبايت</div></div>
+<div class="acts"><button class="btn" data-act="bk">نسخة احتياطية</button><label class="btn s">استرجاع من ملف<input id="rf" type="file" accept=".json,application/json" hidden></label></div><div id="rsi"></div>${snapCard()}${autoCard()}
+${notifV()}${earlyV()}<h3>الإعدادات</h3>${CFGL.map(([k,l,u])=>{const p=/Pct$/.test(k);return `<div class="fl"><label>${l} (${u})</label><input type="number" inputmode="decimal" min="0" step="any" data-cfg="${k}" value="${p?Math.round(S.cfg[k]*100):S.cfg[k]}"></div>`}).join('')}<button class="btn" style="width:100%;margin-bottom:10px" data-act="svc">حفظ الإعدادات</button><button class="btn s" data-act="rst">استرجاع القيم الافتراضية</button><h3>عن التطبيق</h3><div class="cd"><b>النسخة ${VER}</b><div class="mu">آخر نسخة احتياطية: ${(()=>{const a=bkAge();return a?new Date(a.l).toLocaleDateString('ar-EG-u-nu-latn'):'لسه'})()}</div><div class="mu">التخزين الدائم: <span id="pst">…</span></div><div class="mu">آخر تشغيل: ${bootMs} ms${skipTotal()?` · ⚠ ${skipTotal()} سجل تالف اتخطّى عرضه`:''}</div><details class="mu"><summary>معلومات تقنية</summary><pre style="direction:ltr;white-space:pre-wrap;font-size:11px">${esc(diag.join('\n'))}</pre></details><div class="mu">لو التطبيق مش بيظهر آخر التعديلات اضغط «تحديث التطبيق». بياناتك مش بتتمسح.</div></div><div class="acts"><button class="btn s" data-act="upd">تحديث التطبيق</button><button class="btn s" data-act="rawbk">نسخة طوارئ</button></div>`}
+function render(){try{renderMain()}catch(e){dg('render failed: '+(e&&e.message));const m=document.getElementById('main');if(m)m.innerHTML=`<div class="er">⚠ حصلت مشكلة في عرض الشاشة دي</div><div class="cd"><b>بياناتك على الجهاز سليمة</b><div class="mu">جرّب تفتح شاشة تانية من تحت. لو المشكلة فضلت، خد نسخة طوارئ وابعت لي صورة الشاشة دي.</div><div class="mu">السبب: ${esc(String((e&&e.message)||e).slice(0,140))}</div></div><div class="acts"><button class="btn" data-act="rerender">إعادة المحاولة</button><button class="btn s" data-act="rawbk">نسخة طوارئ من البيانات</button></div>`}}
+function renderMain(){$('#ttl').textContent=TABS.find(x=>x[0]===tab)[1];
+$('#nav').innerHTML=TABS.map(([k,l,i])=>`<button data-tab="${k}" class="${k===tab?'on':''}"><span>${i}</span>${l}</button>`).join('');
+if(!ready){$('#main').innerHTML=slow?`<div class="cd"><b>التحميل بياخد وقت أطول من المعتاد…</b><div class="mu">الخطوة: ${esc(STEPN[bootStep]||bootStep)}. بياناتك سليمة، استنى شوية.</div></div><div class="acts"><button class="btn" data-act="retry">إعادة المحاولة</button><button class="btn s" data-act="reload">إعادة تحميل الصفحة</button></div><div class="acts"><button class="btn s" data-act="rawbk">نسخة طوارئ من البيانات</button></div>`:'<div class="empty">جارٍ التحميل…</div>';return}
+if(loadErr){$('#main').innerHTML=`<div class="er">⚠ تعذّر تحميل بياناتك من الجهاز</div><div class="cd"><b>بياناتك غالبًا لسه محفوظة</b><div class="mu">ماتمسحش بيانات المتصفح ولا تحذف التطبيق. اقفل التطبيق تمامًا وافتحه تاني.</div><div class="mu">السبب: ${esc(String(loadErr).startsWith('timeout:')?'التحميل اتأخر جدًا (الخطوة: '+(STEPN[String(loadErr).slice(8)]||String(loadErr).slice(8))+')':String(loadErr).slice(0,120))}</div></div><div class="acts"><button class="btn" data-act="retry">إعادة المحاولة</button><button class="btn s" data-act="reload">إعادة تحميل الصفحة</button></div><div class="acts"><button class="btn s" data-act="rawbk">نسخة طوارئ من البيانات</button><button class="btn s" data-act="nosave">كمّل بدون حفظ (مش مستحسن)</button></div>`;return}
+const t=curT();let h=SUBS[tab]?`<div class="seg">${SUBS[tab].map(([k,l])=>`<button data-sub="${k}" class="${sub[tab]===k?'on':''}">${l}</button>`).join('')}</div>`:'';
+h+=tab==='today'?todayV():tab==='set'?setV():t?listShell(t):sumV();$('#main').innerHTML=h;if(t)fillList();if(tab==='set')try{navigator.storage.persisted().then(p=>{const e=$('#pst');if(e)e.textContent=p?'✓ مفعّل':'غير مفعّل — خد نسخة احتياطية بانتظام'})}catch(e){}}
+
+/* ---------- forms ---------- */
+function optList(t,k){if(t==='br'&&k==='m')return rows('does').filter(act).map(x=>x.c);if(t==='br'&&k==='b')return rows('bucks').filter(act).map(x=>x.c);if(t==='sales'&&k==='cu')return rows('cust').map(x=>x.c);return[]}
+function brOpts(k,cur,skipId){const c=S.cfg,V=view(),S2={...V,br:skipId?V.br.filter(r=>r.id!==skipId):V.br};
+if(k==='m'){const A=Core.doeAvail(S2,c,T0()),it=A.ok.map(x=>({v:x.a.c,sub:x.why}));if(cur&&!it.some(i=>i.v===cur))it.unshift({v:cur,sub:'الأم الحالية'});return{it,hid:A.hide.length}}
+const B=Core.buckAvail(S2,c,Date.now()),it=B.map(x=>({v:x.a.c,sub:x.ok?'متاح':Core.remText(x.remMs),off:!x.ok&&x.a.c!==cur}));if(cur&&!it.some(i=>i.v===cur))it.unshift({v:cur,sub:'الذكر الحالي'});return{it,hid:0}}
+function ddHtml(t,k,v,ty){const cu=ty==='cu';let it;
+if(t==='br'&&(k==='m'||k==='b')){const{it:L,hid}=brOpts(k,v,FS&&FS.id);
+it=L.map(x=>`<button type="button" class="ddo${x.v===v?' sel':''}" data-ddv="${esc(x.v)}"${x.off?' disabled':''}><span>${esc(x.v)}</span><small>${esc(x.sub)}</small>${x.v===v?'<span class="ck">✓</span>':''}</button>`).join('');
+if(!L.length)it=`<div class="dde">${k==='m'?'مفيش أمهات متاحة للتلقيح دلوقتي':'مفيش ذكور — أضفها من «القطيع» أولًا'}</div>`;
+if(hid)it+=`<div class="dde">مخفي ${hid} أم (في دورة شغالة أو لسه صغيرة)</div>`}
+else{const L=optList(t,k);
+it=(cu?'<button type="button" class="ddo nw" data-ddv="__new">＋ زبون جديد</button><button type="button" class="ddo" data-ddv="">— بدون زبون —</button>':'')+L.slice(0,1500).map(x=>`<button type="button" class="ddo${x===v?' sel':''}" data-ddv="${esc(x)}">${esc(x)}${x===v?'<span class="ck">✓</span>':''}</button>`).join('');
+if(!L.length&&!cu)it='<div class="dde">مفيش اختيارات — أضفها من «القطيع» أولًا</div>'}
+return `<div class="dd" data-dd="${k}"><input type="hidden" id="f_${k}" value="${esc(v)}"><button type="button" class="ddb" data-ddo="1"><span class="ddv">${esc(v||(cu?'— بدون —':'اختر…'))}</span><span class="ddc">▾</span></button><div class="ddl" hidden><input type="search" class="dds" placeholder="بحث…" autocomplete="off"><div class="ddi">${it}</div></div></div>${cu?'<input id="f_cu_new" class="ddn" placeholder="اسم الزبون الجديد" maxlength="60" hidden>':''}`}
+function fieldHtml(t,f,r,edit){const[k,l,ty,rq]=f,v=r[k]==null?'':r[k],id='f_'+k;const lb=`<label for="${id}">${l}${rq?'<i> *</i>':''}</label>`;let inp;
+if(Array.isArray(ty))inp=`<select id="${id}">${ty.map(o=>`<option value="${esc(o)}"${o===v?' selected':''}>${o||'—'}</option>`).join('')}</select>`;
+else if(ty==='date')inp=`<input id="${id}" type="date" value="${esc(v)}" max="${todayS()}">`;
+else if(ty==='time')inp=`<input id="${id}" type="time" value="${esc(v)}">`;
+else if(ty==='int'||ty==='dec')inp=`<input id="${id}" type="number" inputmode="${ty==='int'?'numeric':'decimal'}" min="0" step="${ty==='int'?1:'any'}" value="${esc(v)}">`;
+else if(ty==='ref'||ty==='cu')inp=ddHtml(t,k,v,ty);
+else inp=`<input id="${id}" type="${ty==='tel'?'tel':'text'}" value="${esc(v)}" maxlength="${k==='nt'?200:60}"${edit&&k==='c'?' readonly':''}>`;
+return `<div class="fl">${lb}${inp}${t==='br'?`<div class="mu fh" id="h_${k}"></div>`:''}</div>`}
+function collect(t){const o={};for(const f of SCHEMA[t]){const e=document.getElementById('f_'+f[0]);if(e)o[f[0]]=e.value}if(t==='sales'&&!o.cu){const n=document.getElementById('f_cu_new');if(n&&n.value.trim())o.cu=n.value.trim()}return o}
+const nowHM=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+function openForm(t,id,pre){const r=id?byId(t).get(id):Object.assign({},pre||{});if(id&&!r)return;if(t==='br'&&!id){r.d=r.d||todayS();r.tm=r.tm||nowHM()}FS={t,id:id||null};
+$('#sht').textContent=(id?'تعديل ':'إضافة ')+NM[t];
+$('#shb').innerHTML=`${t==='br'?'<div id="stp" class="stp"></div><div id="stn" class="stn"></div><div id="injbox"></div>':''}<div id="fm">${SCHEMA[t].map(f=>fieldHtml(t,f,r,!!id)).join('')}</div><div id="pv" class="pv"></div><div id="er" class="er"></div><div class="acts"><button class="btn" id="sv">حفظ</button>${id?'<button class="btn d" id="dl">حذف</button>':''}</div>`;
+showSheet();pv()}
+function applyFlow(){if(!FS||FS.t!=='br')return;const old=FS.id?byId('br').get(FS.id):null,r=clean('br',{...collect('br'),id:FS.id||'x'}),fl=Core.brFlow(r,old,S.cfg,T0());
+for(const f of SCHEMA.br){const k=f[0],x=fl.f[k],el=document.getElementById('f_'+k);if(!el)continue;const wrap=el.closest('.fl'),off=!x.on;
+if(el.type==='hidden'){const b=wrap.querySelector('.ddb');if(b){b.disabled=off;if(off){const l=wrap.querySelector('.ddl');if(l)l.hidden=true}}}else el.disabled=off;
+wrap.classList.toggle('off',off);const hh=wrap.querySelector('.fh');if(hh)hh.textContent=off?x.why:x.hint;
+if(k==='bd'&&fl.rng.bd){el.min=F(fl.rng.bd[0]);el.max=F(fl.rng.bd[1])}if(k==='wd'&&fl.rng.wd){el.min=F(fl.rng.wd[0]);el.max=F(fl.rng.wd[1])}}
+const s=$('#stp');if(s)s.innerHTML=fl.steps.map(x=>`<span class="${x.s}">${x.n}</span>`).join('');const n=$('#stn');if(n)n.textContent=(fl.oldDone?'🔒 ':'')+fl.next;
+const ib=$('#injbox');if(ib){const bd=D(r.bd),TT=T0();let hh='';if(bd!=null&&(TT-bd<=3||r.ab||r.vt)){const row=(k,lab)=>{const v=r[k];return `<div class="row" style="margin-top:8px"><span>${lab}</span><button type="button" class="btn${v?'':' s'}" data-act="inj" data-f="${k}">${v?'✓ تمت '+esc(v)+' — تراجع':'تمت النهاردة ✓'}</button></div>`};hh=`<div class="cd injb"><b>💉 الحقن المطلوبة بعد الولادة</b>${row('ab','حقنة المضاد الحيوي')}${row('vt','حقنة الفيتامينات')}<div class="mu" style="margin-top:8px">اضغط «تمت» لكل حقنة، وبعدين «حفظ». لما الاتنين يتسجلوا التنبيه بيختفي من «اليوم»، ولو سجّلت واحدة بس بيفضل باقي التانية.</div></div>`}ib.innerHTML=hh}}
+function pv(){if(!FS)return;const{t,id}=FS,c=S.cfg,T=T0();applyFlow();if(FS.armed){FS.armed=false;$('#sv').textContent='حفظ';$('#er').textContent=''}const r=clean(t,{...collect(t),id:id||'x'});let h='';
+const L=(l,n)=>n==null||n===''?'':`<div><span>${l}</span><b>${n}</b></div>`;
+if(t==='br'){const o=calc(r,c,T);h=L('الجسة الأولى',F(o.t1))+L('الجسة الثانية',F(o.t2))+L('الولادة المتوقعة',F(o.exp))+L('حقنة المضاد الحيوي',F(o.ab))+L('حقنة الفيتامين',F(o.vit))+L('الفطام المتوقع',F(o.wean))+L('إجمالي المواليد',o.tot)+L('نافق أثناء الرضاعة',o.died)+L('نسبة الفطام',o.wp==null?'':pc(o.wp))+(o.st?`<div><span>الحالة</span><b class="ch c-${o.st[1]}">${o.st[0]}</b></div>`:'');
+if(kin(r,codes('does'),codes('bucks'))==='w')h+='<div class="warn">⚠️ قرابة قريبة محتملة (جيل واحد) - راجع قبل التلقيح</div>';const old=id?byId(t).get(id):null,de=Core.brCheck(r,old,c,T)||((!old||old.b!==r.b||old.d!==r.d||(old.tm||'')!==(r.tm||''))&&r.b&&r.d?Core.buckRestErr(r,rows('br'),c):'');if(de)h+='<div class="er">'+esc(de)+'</div>'}
+else if(t==='sales'){if(r.w!=null&&r.p!=null)h=L('المبلغ الإجمالي',money(saleTotal(r)))+(r.n?L('متوسط وزن الأرنب',R2(r.w/r.n)+' كجم'):'')}
+else if((t==='does'||t==='bucks')&&id){const x=ST()[t==='does'?'M':'B'][r.c]||Core.empty(c);const b=D(r.bd);
+h=(t==='does'&&b!=null?L('جاهزة للتلقيح الأول من',F(b+c.FirstMatingAge)):'')+L('عدد التلقيحات',x.n)+L('نسبة نجاح التلقيح',pc(x.sr))+L('الولادات الفعلية',x.b)+L('متوسط المواليد الأحياء',x.avgAl==null?'—':R2(x.avgAl))+L('متوسط المفطومين',x.avgWc==null?'—':R2(x.avgWc))+L('نسبة الفطام',pc(x.wp))+L(t==='does'?'آخر تلقيح':'آخر استخدام',F(x.last)||'—')+`<div><span>التقييم</span><b class="ch c-${x.rate[1]}">${x.rate[0]}</b></div>`}
+$('#pv').innerHTML=h}
+function validate(t,r,isNew,old){const T=T0();
+for(const f of SCHEMA[t])if(f[3]&&r[f[0]]==null)return `«${f[1]}» مطلوب`;
+for(const f of SCHEMA[t])if(f[2]==='date'&&r[f[0]]&&D(r[f[0]])>T)return `«${f[1]}» لا يمكن أن يكون في المستقبل`;
+if(t==='br'){const M=codes('does')[r.m],B=codes('bucks')[r.b];
+if(!M)return 'كود الأم غير موجود — أضفها من «القطيع» أولًا';if(!B)return 'كود الذكر غير موجود — أضفه من «القطيع» أولًا';
+if(isNew&&!act(M))return 'الأم دي مستبعدة أو نافقة';if(isNew&&!act(B))return 'الذكر ده مستبعد أو نافق';
+const be=Core.brCheck(r,old,S.cfg,T);if(be)return be;
+if(isNew||!old||old.b!==r.b||old.d!==r.d||(old.tm||'')!==(r.tm||'')){if(r.tm&&D(r.d)===T){const n=new Date();if(r.tm>String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'))return 'وقت التلقيح في المستقبل'}
+const re=Core.buckRestErr(r,rows('br'),S.cfg);if(re)return re}
+if(rows('br').some(x=>x.id!==r.id&&x.m===r.m&&x.d===r.d))return 'في تلقيح مسجل لنفس الأم بنفس التاريخ'}
+if(t==='does'||t==='bucks'||t==='cust'){const x=codes(t)[r.c];if(x&&x.id!==r.id)return 'الكود/الاسم ده موجود بالفعل'}
+if(t==='sales'){if(!(r.n>=1))return 'عدد الأرانب لازم يكون 1 على الأقل';if(!(r.w>0))return 'الوزن لازم يكون أكبر من صفر'}
+if(t==='exp'&&!(r.a>0))return 'المبلغ لازم يكون أكبر من صفر';
+return ''}
+function save(){if(!FS)return;const{t,id}=FS;const r=clean(t,{...collect(t),id:id||undefined});if(id&&(t==='does'||t==='bucks'||t==='cust')){const o0=byId(t).get(id);if(o0)r.c=o0.c}const e=validate(t,r,!id,id?byId(t).get(id):null);if(e){$('#er').textContent=e;return}
+if(t==='br'){const o0=id?byId(t).get(id):null;if(Core.isDone(r)&&!(o0&&Core.isDone(o0))&&!FS.armed){FS.armed=true;$('#er').textContent='⚠ الحفظ هيقفل الدورة دي نهائيًا — مش هتقدر تعدّل التواريخ والنتايج بعد كده (الأعداد والملاحظات بس). لو متأكد اضغط «تأكيد وقفل الدورة».';$('#sv').textContent='تأكيد وقفل الدورة';return}}
+if(t==='sales'&&r.cu&&!codes('cust')[r.cu])put('cust',clean('cust',{c:r.cu}));
+put(t,r);closeSheet();toast('تم الحفظ ✓');render()}
+function delRec(){if(!FS||!FS.id)return;const{t,id}=FS,r=byId(t).get(id);if(!r)return;let n=0;
+if(t==='does')n=rows('br').filter(x=>x.m===r.c).length;if(t==='bucks')n=rows('br').filter(x=>x.b===r.c).length;if(t==='cust')n=rows('sales').filter(x=>x.cu===r.c).length;
+if(n){$('#er').textContent=`لا يمكن الحذف لأنه مرتبط بـ ${n} سجل.`+(t==='cust'?'':' غيّر الحالة إلى «مستبعد» بدل الحذف.');return}
+del(t,id);closeSheet();toast('تم الحذف');render()}
+function quickVac(s){const[t,id,f]=s.split('|'),r=byId(t).get(id);if(!r)return;const old=r[f];put(t,{...r,[f]:todayS()});render();
+toast('تم تسجيل التحصين ✓',()=>{const c=byId(t).get(id);if(!c)return;const n={...c};if(old==null)delete n[f];else n[f]=old;put(t,n);render()})}
+function saveCfg(el){const k=el.dataset.cfg,pct=/Pct$/.test(k);let v=Number(el.value);
+if(el.value===''||!isFinite(v)||v<0||(pct&&v>100)||(!pct&&!ZOK.has(k)&&/Days$|Age$|Cycle$/.test(k)&&v<1)){toast('قيمة غير صالحة');return render()}
+if(pct)v/=100;const nc={...S.cfg,[k]:v};if(nc.PoorRatePct>nc.GoodRatePct){toast('نسبة الضعيف لازم تكون أقل من الممتاز');return render()}
+S.cfg=nc;qc();S.v++;toast('تم حفظ الإعداد ✓');render()}
+async function shareFile(name,mime,text,title){const f=new File([text],name,{type:mime});
+try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title});return 1}}catch(e){if(e&&e.name==='AbortError')return 2}
+try{const a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4e4);return 1}catch(e){return 0}}
+function bkAge(){try{const l=+localStorage.getItem('rf_bk')||0;return l?{l,d:Math.floor((Date.now()-l)/864e5)}:null}catch(e){return null}}
+function skipWarn(){const n=skipTotal();return n?`<div class="er">⚠ ${n} سجل تالف اتخطّى عرضه (لسه موجود على الجهاز). التفاصيل في الإعدادات ← معلومات تقنية.</div>`:''}
+function bkWarn(){const n=['does','bucks','br','sales','exp'].reduce((a,t)=>a+rows(t).length,0);if(n<5)return'';const a=bkAge();if(a&&a.d<14)return'';
+return `<div class="cd"><b>⚠ ${a?'آخر نسخة احتياطية من '+a.d+' يوم':'لسه ما أخدتش نسخة احتياطية'}</b><div class="mu">خد نسخة عشان بياناتك تفضل في أمان لو حصل أي حاجة للتليفون.</div></div><div class="acts"><button class="btn" data-act="bk">نسخة احتياطية الآن</button></div>`}
+async function doBackup(){const s=JSON.stringify({v:1,at:new Date().toISOString(),cfg:S.cfg,t:Object.fromEntries(Object.keys(S.ch).map(t=>[t,rows(t)]))});
+const r=await shareFile('rabbit-farm-backup-'+todayS()+'.json','application/json',s,'نسخة احتياطية - Rabbit Farm');
+if(r===1){try{localStorage.setItem('rf_bk',String(Date.now()))}catch(e){}toast('تم تجهيز النسخة الاحتياطية ✓')}else if(r===0)toast('تعذّر تصدير النسخة')}
+let pend=null;
+function pickFile(f){const rd=new FileReader();rd.onload=()=>{try{pend=importCheck(JSON.parse(rd.result));$('#rsi').innerHTML=`<div class="warn">سيتم استبدال بياناتك الحالية (${curTotal()} سجل) بـ ${pend.total} سجل من الملف${pend.at?' (نسخة بتاريخ '+esc(pend.at)+')':''}.</div>${pend.total<curTotal()?'<div class="er">⚠ الملف فيه سجلات أقل من اللي عندك دلوقتي — اتأكد إنه أحدث نسخة قبل ما تأكد.</div>':''}${pend.dropped?`<div class="er">⚠ ${pend.dropped} سجل في الملف ناقص أو غير صالح وهيتم تجاهله.</div>`:''}<button class="btn d" data-act="rs">تأكيد الاستبدال</button>`}catch(e){pend=null;$('#rsi').innerHTML=`<div class="er">${esc(e&&e.name==='SyntaxError'?'الملف ليس نسخة احتياطية صالحة (مش ملف JSON سليم)':(e&&e.message)||'ملف غير صالح')}</div>`}};rd.onerror=()=>{$('#rsi').innerHTML='<div class="er">تعذّرت قراءة الملف</div>'};rd.readAsText(f)}
+async function doRestore(){if(!pend)return;if(!IDB){toast('التخزين غير متاح — الاسترجاع مش آمن دلوقتي');return}const d=pend;pend=null;
+try{await saveSnap()}catch(e){pend=d;toast('تعذّر حفظ نسخة أمان من بياناتك الحالية — خد نسخة احتياطية الأول');return}
+toast('جارٍ حفظ البيانات على الجهاز… ماتقفلش التطبيق');applyData(d);render();
+const w=await whenIdle();if(w&&!failed)toast('تم الاسترجاع ✓ — نسخة أمان من بياناتك القديمة محفوظة في الإعدادات');else toast('⚠ الحفظ على الجهاز لسه ما خلصش — سيب التطبيق مفتوح وراجع حالة الحفظ')}
+async function restoreSnap(){if(!IDB)return;let d;try{d=await idbGet('zz-snap')}catch(e){d=null}if(!d||!d.t){toast('مفيش نسخة أمان');return}
+const keep={cfg:d.cfg,t:d.t};try{await saveSnap()}catch(e){toast('تعذّر حفظ نسخة أمان للحالة الحالية');return}
+toast('جارٍ حفظ البيانات على الجهاز… ماتقفلش التطبيق');applyData(keep);render();
+const w=await whenIdle();if(w&&!failed)toast('تم استرجاع نسخة الأمان ✓');else toast('⚠ الحفظ على الجهاز لسه ما خلصش — سيب التطبيق مفتوح')}
+const curTotal=()=>Object.keys(S.ch).reduce((a,t)=>a+rows(t).length,0);
+function snapCard(){const s=hasSnap;if(!s)return'';const n=Object.values(s.counts).reduce((a,b)=>a+b,0);let w='';try{w=new Date(s.at).toLocaleString('ar-EG-u-nu-latn')}catch(e){}
+return `<div class="cd"><b>🛟 نسخة أمان قبل آخر استرجاع</b><div class="mu">${esc(w)} · ${n} سجل</div></div><div class="acts"><button class="btn s" data-act="rsnap">استرجاع نسخة الأمان دي</button></div>`}
+function saveAllCfg(){const nc={...S.cfg};
+for(const el of document.querySelectorAll('[data-cfg]')){const k=el.dataset.cfg,pct=/Pct$/.test(k);let v=Number(el.value);
+if(el.value===''||!isFinite(v)||v<0||(pct&&v>100)||(!pct&&!ZOK.has(k)&&/Days$|Age$|Cycle$/.test(k)&&v<1)||(ZOK.has(k)&&!Number.isInteger(v))){const f=CFGL.find(x=>x[0]===k)||CFGE.find(x=>x[0]===k);toast('قيمة غير صالحة: '+(f?f[1]:k));return}nc[k]=pct?v/100:v}
+if(nc.PoorRatePct>nc.GoodRatePct){toast('نسبة الضعيف لازم تكون أقل من الممتاز');return}
+if(nc.MinWeanDays>nc.WeaningAge){toast('أقل مدة للفطام لازم تكون أقل من أو تساوي سن الفطام');return}
+if(nc.MaxBirthDays<nc.GestationDays){toast('أقصى مدة للولادة لازم تكون أكبر من أو تساوي مدة الحمل');return}
+if(nc.BirthAlertDays>nc.GestationDays||nc.WeanBeforeBirthDays>nc.GestationDays){toast('أيام التنبيه المبكر لازم تكون أقل من أو تساوي مدة الحمل');return}
+S.cfg=nc;qc();S.v++;toast('تم حفظ الإعدادات ✓');render()}
+async function updateApp(){toast('جارٍ التحديث…');clearTimeout(tt);
+const names=['index.html','core.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','badge-96.png'];let got;
+/* 1) download everything FIRST. If the internet is weak or off, nothing is touched and the app keeps working exactly as it is */
+try{const sig=AbortSignal.timeout?AbortSignal.timeout(25000):undefined;got=await Promise.all(names.map(async f=>{const r=await fetch(f,{cache:'reload',headers:{'x-rf-fresh':'1'},signal:sig});if(!r.ok)throw new Error(f+' '+r.status);return[f,r]}))}
+catch(e){toast('مفيش اتصال كويس بالإنترنت دلوقتي — التطبيق شغال زي ما هو، جرّب التحديث لما الشبكة تتحسن');return}
+/* 2) swap the saved copies all at once, ask the browser to look for a newer service worker, then reload from the phone's own copy */
+try{for(const k of(await caches.keys()).filter(k=>/^rf-v/.test(k))){const c=await caches.open(k);for(const[f,r]of got){await c.put(f,r.clone());if(f==='index.html')await c.put('./',r.clone())}}
+const reg=await navigator.serviceWorker.getRegistration();if(reg)await Promise.race([reg.update().catch(()=>0),new Promise(r=>setTimeout(r,8000))])}catch(e){dg('update swap failed: '+((e&&e.message)||e))}
+location.reload()}
+function doAct(a,el){if(a==='inj'){const e=document.getElementById('f_'+el.dataset.f);if(!e||e.disabled)return;e.value=e.value?'':todayS();e.dispatchEvent(new Event('change',{bubbles:true}));return}
+if(a==='newbr'){openForm('br',null,{m:el.dataset.m});return}
+if(a==='retry')return retryBoot();if(a==='reload')return location.reload();if(a==='rerender'){render();return}if(a==='rawbk')return rawBackup();if(a==='nosave'){loadErr=null;render();return}if(a==='upd')return updateApp();if(a==='svc')return saveAllCfg();if(a==='nf')return enableNotif();if(a==='nt')return notifyDue(1);if(a==='ics')return exportIcs();if(a==='shr')return shareApp();if(a==='ins')return installApp();
+if(a==='bk')return doBackup();
+if(a==='autores'){if(!el.dataset.arm){el.dataset.arm='1';const o=el.textContent;el.textContent='اضغط مرة تانية للتأكيد';setTimeout(()=>{el.dataset.arm='';el.textContent=o},3000);return}return restoreAuto(+el.dataset.slot)}
+if(a==='lossok'){lossWarn=null;const L2={t:rowsNow(),at:Date.now()};lastSet(L2);dg('loss warning dismissed by user');render();return}
+if(a==='rsnap'){if(!el.dataset.arm){el.dataset.arm='1';el.textContent='اضغط مرة أخرى للتأكيد';setTimeout(()=>{el.dataset.arm='';el.textContent='استرجاع نسخة الأمان دي'},3000);return}return restoreSnap()}
+if(a==='rs')return doRestore();
+if(a==='rst'){if(!el.dataset.arm){el.dataset.arm='1';el.textContent='اضغط مرة أخرى للتأكيد';setTimeout(()=>{el.dataset.arm='';el.textContent='استرجاع القيم الافتراضية'},3000);return}S.cfg={...DEF};qc();S.v++;toast('تم الاسترجاع');render()}}
+
+/* ---------- phone notifications, calendar, install ---------- */
+const NP=()=>'Notification' in window?Notification.permission:'na';
+const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+let dip=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;if(tab==='set'&&!FS)render()});addEventListener('appinstalled',()=>{dip=null});
+function notifV(){const p=NP(),ios=/iphone|ipad/i.test(navigator.userAgent);
+const st=p==='granted'?'✅ إشعارات الجوال مفعّلة':p==='denied'?'⛔ الإشعارات مرفوضة — فعّلها من إعدادات الجوال':'🔕 الإشعارات غير مفعّلة';
+return `<h3>التنبيهات على الجوال</h3><div class="cd"><b>${st}</b><div class="mu">${ios&&!standalone()?'على الآيفون: ثبّت التطبيق الأول (مشاركة ← إضافة إلى الشاشة الرئيسية) وافتحه من الأيقونة عشان الإشعارات تشتغل.':'بيوصلك إشعار بالمواعيد العاجلة لما تفتح التطبيق، وكمان كل يوم تلقائيًا على أندرويد.<br>لتغيير نغمة الإشعار: إعدادات الجوال ← التطبيقات ← Rabbit Farm ← الإشعارات ← الصوت.'}</div></div><div class="acts"><button class="btn" data-act="nf">تفعيل الإشعارات</button><button class="btn s" data-act="nt">إشعار تجريبي</button></div>
+<div class="cd"><b>📅 منبهات تشتغل والتطبيق مقفول</b><div class="mu">ضيف مواعيد الجسات والولادة والفطام والتحصينات (لـ 45 يوم جاي) لتقويم الجوال، فيرن عليك المنبه الساعة 9 الصبح على أندرويد وآيفون. كرّرها كل شهر أو بعد تسجيل تلقيحات جديدة.</div></div><div class="acts"><button class="btn" data-act="ics">إضافة المواعيد للتقويم</button></div>
+<div class="acts"><button class="btn s" data-act="shr">مشاركة التطبيق</button>${dip?'<button class="btn s" data-act="ins">تثبيت التطبيق</button>':''}</div>`}
+async function installApp(){if(!dip)return;dip.prompt();await dip.userChoice.catch(()=>0);dip=null;render()}
+async function shareApp(){const u=location.href.split('#')[0];try{if(navigator.share)await navigator.share({title:'Rabbit Farm',text:'تطبيق متابعة المزرعة',url:u});else{await navigator.clipboard.writeText(u);toast('اتنسخ رابط التطبيق')}}catch(e){}}
+async function reg2(){try{const r=await navigator.serviceWorker.ready;if(r.periodicSync)await r.periodicSync.register('rf-daily',{minInterval:12*36e5})}catch(e){}}
+async function enableNotif(){if(!('Notification' in window)){toast('المتصفح ده مش بيدعم الإشعارات');return}
+try{const p=await Notification.requestPermission();if(p==='granted'){reg2();notifyDue(1)}else toast('لم يتم السماح بالإشعارات')}catch(e){toast('تعذّر تفعيل الإشعارات')}render()}
+async function notifyDue(force){if(NP()!=='granted'){if(force)toast('فعّل الإشعارات أولًا');return}
+if(!force){try{if(localStorage.rf_nd===todayS())return}catch(e){}}
+const nt=Core.dueNote(alerts(view(),S.cfg,T0())),body=nt.body;if(!body&&!force)return;
+if(!force){try{localStorage.rf_nd=todayS()}catch(e){}}
+const o={body:body||'مفيش حالات عاجلة النهاردة ✓',tag:'rf-daily',icon:'icon-192.png',badge:'badge-96.png',vibrate:[200,100,200],lang:'ar',dir:'rtl'};
+try{const r=await navigator.serviceWorker.ready;await r.showNotification(nt.title,o)}catch(e){try{new Notification(nt.title,o)}catch(_){}}}
+async function exportIcs(){const ics=Core.ics(view(),S.cfg,T0());if(!ics){toast('مفيش مواعيد خلال الـ 45 يوم الجاية');return}const r=await shareFile('rabbit-farm-reminders.ics','text/calendar',ics,'مواعيد Rabbit Farm');if(r===1)toast('افتح الملف واختر «إضافة للتقويم»');else if(r===0)toast('تعذّر تجهيز الملف')}
+
+/* ---------- events ---------- */
+document.addEventListener('click',e=>{const el=e.target.closest('[data-open],[data-add],[data-sub],[data-more],[data-vac],[data-go],[data-tab],[data-act],#shx,#sv,#dl,#sheet');if(!el)return;const d=el.dataset;
+if(el.id==='sheet'){if(e.target===el)closeSheet();return}
+if(el.id==='shx')return closeSheet();if(el.id==='sv')return save();
+if(el.id==='dl'){if(el.dataset.arm)return delRec();el.dataset.arm='1';el.textContent='اضغط مرة أخرى للتأكيد';setTimeout(()=>{el.dataset.arm='';el.textContent='حذف'},3000);return}
+if(d.tab)return go(d.tab);
+if(d.sub){sub[tab]=d.sub;q='';flt='';pg=1;return render()}
+if(d.go){const[a,b,c]=d.go.split('|');return go(a,b,c)}
+if(d.more){pg++;return fillList()}
+if(d.add)return openForm(d.add);
+if(d.open){const[t,id]=d.open.split('|');return openForm(t,id)}
+if(d.vac)return quickVac(d.vac);
+if(d.act)return doAct(d.act,el)});
+document.addEventListener('click',e=>{
+const b=e.target.closest('[data-ddo]');
+if(b){const l=b.closest('.dd').querySelector('.ddl'),op=l.hidden;document.querySelectorAll('.ddl').forEach(x=>{x.hidden=true});l.hidden=!op;
+if(op){const s=l.querySelector('.dds');s.value='';l.querySelectorAll('.ddo').forEach(x=>{x.hidden=false});try{l.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(_){}}return}
+const o=e.target.closest('[data-ddv]');if(!o)return;
+const dd=o.closest('.dd'),v=o.dataset.ddv,h=dd.querySelector('input[type=hidden]'),n=document.getElementById('f_cu_new');
+if(v==='__new'){h.value='';dd.querySelector('.ddv').textContent='＋ زبون جديد';if(n){n.hidden=false;n.focus()}}
+else{h.value=v;dd.querySelector('.ddv').textContent=v||'— بدون —';if(n){n.hidden=true;n.value=''}}
+dd.querySelectorAll('.ddo').forEach(x=>{x.classList.remove('sel');const s=x.querySelector('span.ck');if(s)s.remove()});
+if(v&&v!=='__new'){o.classList.add('sel');o.insertAdjacentHTML('beforeend','<span class="ck">✓</span>')}
+dd.querySelector('.ddl').hidden=true;h.dispatchEvent(new Event('change',{bubbles:true}))});
+document.addEventListener('input',e=>{const t=e.target;if(t.classList&&t.classList.contains('dds')){const tk=Core.searchTokens(t.value);
+t.closest('.ddl').querySelectorAll('.ddo').forEach(b=>{b.hidden=!!tk.length&&b.dataset.ddv!=='__new'&&!Core.searchOk({ids:b.dataset.ddv||'',rest:(b.querySelector('small')||{}).textContent||''},tk)})}});
+document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('button,label.btn')){try{navigator.vibrate&&navigator.vibrate(8)}catch(_){}}},{passive:true});
+let qt=0;
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset&&t.dataset.cfg&&ZOK.has(t.dataset.cfg)){const h=document.getElementById('eh_'+t.dataset.cfg);if(h)h.innerHTML='<b>'+esc(earlyHint(t.dataset.cfg,Number(t.value)))+'</b>'}
+if(t.id==='q'){q=t.value;pg=1;clearTimeout(qt);qt=setTimeout(fillList,150)}else if(FS&&t.closest&&t.closest('#fm'))pv()});
+document.addEventListener('change',e=>{const t=e.target;if(t.id==='flt'){flt=t.value;pg=1;fillList()}else if(t.dataset&&t.dataset.cfg){}else if(t.id==='rf'){if(t.files&&t.files[0])pickFile(t.files[0])}else if(FS&&t.closest&&t.closest('#fm'))pv()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)return;syncAll();notifyDue();if(!FS)render()});
+let dayKey=todayS();setInterval(()=>{const n=todayS();if(n!==dayKey){dayKey=n;if(!FS&&ready)render()}},30000);
+window.RF={loss:()=>lossWarn,autoSnap,autoMeta:()=>autoMeta,rowsNow,S,put,del,go,render,openForm,save,rows,fillList,validate,items,brCheck:Core.brCheck,flow:Core.brFlow,idle:()=>!opq.size&&!replaceT.size&&!pendCfg&&!running.length&&!sch};
+let errToast=false;const onErr=m=>{dg('error: '+m);if(!errToast){errToast=true;try{toast('حصل خطأ غير متوقع — لو اتكرر ابعت صورة من الإعدادات ← معلومات تقنية')}catch(_){}}};
+addEventListener('error',e=>onErr(e&&e.message));addEventListener('unhandledrejection',e=>onErr(e&&e.reason&&e.reason.message||e.reason));
+render();setTimeout(()=>{if(!ready){slow=true;render()}},TO.slow);boot().then(()=>{if(NP()==='granted'){reg2();notifyDue()}}).catch(e=>dg('boot crashed: '+(e&&e.message)));
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>0));
+navigator.serviceWorker.addEventListener('message',e=>{if(e.data&&e.data.t==='rf-updated'){toast('نزلت نسخة جديدة ✓ — اقفل التطبيق وافتحه عشان تشتغل');clearTimeout(tt);tt=setTimeout(()=>{$('#toast').hidden=true},9000)}})}
+})();
+</script>
+</body>
+</html>
